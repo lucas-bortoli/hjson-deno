@@ -1,7 +1,7 @@
-# hjson-js
+# hjson-deno
 
-[![Build Status](https://img.shields.io/travis/hjson/hjson-js.svg?style=flat-square)](http://travis-ci.org/hjson/hjson-js)
-[![NPM version](https://img.shields.io/npm/v/hjson.svg?style=flat-square)](http://www.npmjs.com/package/hjson)
+## Hjson port for Deno
+
 [![License](https://img.shields.io/github/license/hjson/hjson-js.svg?style=flat-square)](https://github.com/hjson/hjson-js/blob/master/LICENSE)
 
 [Hjson](https://hjson.github.io), a user interface for JSON
@@ -32,12 +32,6 @@ Hjson is a syntax extension to JSON. It's NOT a proposal to replace JSON or to i
 ```
 
 The JavaScript implementation of Hjson is based on [JSON-js](https://github.com/douglascrockford/JSON-js). For other platforms see [hjson.github.io](https://hjson.github.io).
-
-# Install from npm
-
-```
-npm install hjson
-```
 
 # Usage
 
