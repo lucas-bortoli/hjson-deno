@@ -36,7 +36,7 @@ The JavaScript implementation of Hjson is based on [JSON-js](https://github.com/
 # Usage
 
 ```
-import * as Hjson from "https://deno.land/x/gh:pantheonlbs:hjson-deno/mod.ts"
+import * as Hjson from "https://deno.land/x/hjson_deno/mod.ts"
 var obj = Hjson.parse(hjsonText);
 var text2 = Hjson.stringify(obj);
 ```
