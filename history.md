@@ -1,4 +1,8 @@
-# hjson-js History
+# hjson-deno History
+- v1 (hjson-js v3.2.1)
+  - initial Deno port
+
+## hjson-js History
 
 - v3.2.1
   - fix stringifying with comments

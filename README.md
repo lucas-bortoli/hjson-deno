@@ -36,52 +36,12 @@ The JavaScript implementation of Hjson is based on [JSON-js](https://github.com/
 # Usage
 
 ```
-var Hjson = require('hjson');
-
+import * as Hjson from "https://deno.land/x/gh:pantheonlbs:hjson-deno/mod.ts"
 var obj = Hjson.parse(hjsonText);
 var text2 = Hjson.stringify(obj);
 ```
 
 To keep comments intact see [API](#modify--keep-comments).
-
-## From the Commandline
-
-Install with `npm install hjson -g`.
-
-```
-Usage:
-  hjson [OPTIONS]
-  hjson [OPTIONS] INPUT
-  hjson (-h | --help | -?)
-  hjson (-V | --version)
-
-INPUT can be in JSON or Hjson format. If no file is given it will read from stdin.
-The default is to output as Hjson.
-
-Options:
-  (-j | -json)  output as formatted JSON.
-  (-c | -json=compact)  output as JSON.
-Options for Hjson output:
-  -sl         output the opening brace on the same line
-  -quote      quote all strings
-  -quote=all  quote keys as well
-  -js         output in JavaScript/JSON compatible format
-              can be used with -rt and // comments
-  -rt         round trip comments
-  -nocol      disable colors
-  -cond=n     set condense option (default 60, 0 to disable)
-
-Domain specific formats are optional extensions to Hjson and can be enabled with the following options:
-  +math: support for Inf/inf, -Inf/-inf, Nan/naN and -0
-  +hex: parse hexadecimal numbers prefixed with 0x
-  +date: support ISO dates
-```
-
-Sample:
-- run `hjson -j test.hjson > test.json` to convert to JSON
-- run `hjson test.json > test.hjson` to convert to Hjson
-- run `hjson test.json` to view colorized output
-
 
 # API
 
@@ -126,22 +86,9 @@ This method produces Hjson text from a JavaScript value.
 
 Gets or sets the stringify EOL sequence ('\n' or '\r\n'). When running with node.js this defaults to os.EOL.
 
-### Hjson.rt { parse, stringify }
-
-This is a shortcut to roundtrip your comments when reading and updating a config file. It is the same as specifying the keepWsc option for the parse and stringify functions.
-
 ### Hjson.version
 
 The version number.
-
-### require-hook
-
-Require a config file directly.
-
-```
-require("hjson/lib/require-config");
-var cfg=require("./config.hjson");
-```
 
 ## modify & keep comments
 
@@ -150,17 +97,14 @@ You can modify a Hjson file and keep the whitespace & comments intact (round tri
 ```
 // parse, keep whitespace and comments
 // (they are stored in a non enumerable __COMMENTS__ member)
-var data = Hjson.rt.parse(text);
+const data = Hjson.parse(text, { keepWsc: true });
 
 // modify like you normally would
 data.foo = "text";
 
 // convert back to Hjson
-console.log(Hjson.rt.stringify(data));
+console.log(Hjson.stringify(data, { keepWsc: true }));
 ```
-# Build
-
-To run all tests and create the bundle output, first install the dev dependencies with `npm i` and then run `npm run build`.
 
 # History
 
