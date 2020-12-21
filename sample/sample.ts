@@ -1,10 +1,9 @@
+import * as Hjson from "../mod.ts"
 
-var Hjson=require("hjson");
-var fs=require("fs");
-var text=fs.readFileSync("test.hjson", "utf8");
+const text = await Deno.readTextFile("test.hjson");
 
 // parse either JSON or Hjson
-var data=Hjson.parse(text);
+let data = Hjson.parse(text);
 console.log(data.hello);
 console.log();
 
@@ -18,10 +17,10 @@ console.log("\n--- Hjson output:");
 console.log(Hjson.stringify(data));
 
 // parse, keep whitespace and comments
-data=Hjson.rt.parse(text);
+data = Hjson.parse(text, { keepWsc: true });
 
 // modify like you normally would
-data.foo="text";
+data.foo= "text";
 
 console.log("\n--- Hjson output with comments:");
-console.log(Hjson.rt.stringify(data));
+console.log(Hjson.stringify(data, { keepWsc: true }));

@@ -1,6 +1,0 @@
-{
-  "private": true,
-  "dependencies": {
-    "hjson": "^2.3.0"
-  }
-}
